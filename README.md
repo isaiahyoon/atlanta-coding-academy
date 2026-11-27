@@ -82,3 +82,13 @@ Midnight navy, pearl, lavender, aqua, Crosbie pink and yellow, and champagne gol
 - **KRV (1961):** `#4b7395`, `#bed8ea`
 - **Lutherbibel (1912):** `#8a6c22`, `#fff1bd`, `#b9534b`
 - **Giovanni Diodati:** `#a94f66`, `#f3cada`
+
+## Automated checks
+
+Run the static-site regression suite with Python 3.11 or later:
+
+```sh
+python3 -m unittest discover -s tests -v
+```
+
+GitHub Actions runs the same suite on pushes and pull requests. The checks cover page structure, navigation fragments, local resources, image alt attributes, safe external links, selected Scripture destinations, the founder's The Amazing Word credit, and pre-launch disclosures.

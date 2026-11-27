@@ -80,14 +80,14 @@ summary:focus-visible {
   justify-content: center;
   gap: 12px 24px;
   padding-block: 9px;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.5;
   text-align: center;
 }
 
 .launch-status strong {
   color: #f8e9b9;
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: .13em;
 }
 
@@ -521,7 +521,7 @@ h2 {
 .learning-card p {
   margin: 0;
   color: #596e7c;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
 }
 
@@ -590,14 +590,14 @@ h2 {
 
 .founder-grid {
   display: grid;
-  grid-template-columns: .72fr 1.28fr;
+  grid-template-columns: .55fr 1.45fr;
   align-items: center;
-  gap: clamp(42px, 9vw, 130px);
+  gap: clamp(42px, 7vw, 100px);
 }
 
 .founder-mark {
   display: flex;
-  min-height: 380px;
+  min-height: 280px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -608,12 +608,12 @@ h2 {
 
 .founder-mark > span {
   color: #fffafa;
-  font: italic clamp(84px, 12vw, 142px)/.8 var(--serif);
+  font: italic clamp(76px, 8vw, 110px)/.8 var(--serif);
   letter-spacing: -.1em;
 }
 
 .founder-mark img {
-  width: min(180px, 50%);
+  width: min(130px, 50%);
   height: auto;
   margin-top: 16px;
   padding: 8px;
@@ -642,7 +642,7 @@ h2 {
 
 .founder-copy > p:not(.eyebrow):not(.founder-lede) {
   color: #d0dfe1;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .founder-link {
@@ -678,6 +678,11 @@ h2 {
   margin: 12px auto 0;
   font-size: 13px;
   overflow-wrap: anywhere;
+}
+
+.contact-email a {
+  color: var(--navy);
+  text-underline-offset: 3px;
 }
 
 .site-footer {
@@ -775,8 +780,15 @@ h2 {
   .primary-nav {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 8px 17px;
-    font-size: 11px;
+    gap: 0;
+    font-size: 13px;
+  }
+
+  .primary-nav a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    padding-inline: 8px;
   }
 
   .hero {
@@ -874,11 +886,14 @@ h2 {
   }
 
   .founder-mark {
-    min-height: 270px;
+    width: min(100%, 300px);
+    min-height: 220px;
+    justify-self: center;
+    order: 1;
   }
 
   .founder-mark > span {
-    font-size: 100px;
+    font-size: 76px;
   }
 
   .footer-main {
@@ -898,9 +913,8 @@ h2 {
     width: min(100% - 30px, 560px);
   }
 
-  .primary-nav {
-    column-gap: 12px;
-    font-size: 10px;
+  .primary-nav a {
+    padding-inline: 6px;
   }
 
   .button {

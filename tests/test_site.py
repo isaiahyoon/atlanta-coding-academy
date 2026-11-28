@@ -30,6 +30,7 @@ class SiteMarkupParser(HTMLParser):
         self.ids = []
         self.links = []
         self.images = []
+        self.scripts = []
         self.resources = []
         self.paragraphs = []
         self.text = []
@@ -48,6 +49,8 @@ class SiteMarkupParser(HTMLParser):
             self.main_count += 1
         if tag == "img":
             self.images.append(attrs)
+        if tag == "script":
+            self.scripts.append(attrs)
 
         if tag in {"a", "link"} and attrs.get("href"):
             self.resources.append(attrs["href"])
@@ -88,6 +91,15 @@ class SiteRegressionTests(unittest.TestCase):
     def test_document_has_one_primary_heading_and_main_landmark(self):
         self.assertEqual(self.parser.heading_one_count, 1)
         self.assertEqual(self.parser.main_count, 1)
+
+    def test_umami_tracking_script_is_configured_once(self):
+        scripts = [
+            script for script in self.parser.scripts
+            if script.get("src") == "https://cloud.umami.is/script.js"
+        ]
+        self.assertEqual(len(scripts), 1)
+        self.assertEqual(scripts[0].get("data-website-id"), "fb9cc750-b0f4-4dc8-bc40-185d71222e99")
+        self.assertIn("defer", scripts[0])
 
     def test_ids_are_unique_and_fragment_links_resolve(self):
         self.assertEqual(len(self.parser.ids), len(set(self.parser.ids)))

@@ -73,7 +73,7 @@ The academy's visual identity brings together Atlanta's confidence and creativit
 
 The academy's website is a lightweight static site. Its <a href="./index.html" target="_blank" rel="noopener noreferrer">home page</a> shares the mission, learning approach, and Atlanta roots; styles are in <a href="./styles.css" target="_blank" rel="noopener noreferrer">styles.css</a>. The visual identity features a <a href="./assets/burning-tree.png" target="_blank" rel="noopener noreferrer">living tree and blue flame logo</a> alongside an Atlanta hero image at <a href="./assets/atlanta-at-sunset.jpg" target="_blank" rel="noopener noreferrer">assets/atlanta-at-sunset.jpg</a>.
 
-The home page has an English/한국어 switch; `?lang=ko` links directly to the Korean view. The translation is in <a href="./assets/ko.js">assets/ko.js</a> and requires JavaScript; without it the page remains in English. Scripture quotations remain in the English KJV. Social sharing previews use the static English metadata even for the Korean URL. The Korean wording is a draft for review and does not promise Korean-language instruction or support.
+The home page has an English/한국어 switch; `?lang=ko` links directly to the Korean view. The translation is in <a href="./assets/ko.js">assets/ko.js</a> and requires JavaScript; without it the page remains in English. The English view quotes the KJV; the Korean view quotes complete passages from The Amazing Word's 개역한글판 1961 (KRV), attributed to 대한성서공회. The academy's envisioned Bible study remains rooted in the KJV. Social sharing previews use the static English metadata even for the Korean URL. The Korean wording is a draft for review and does not promise Korean-language instruction or support.
 
 The academy offers a multilingual, neighborly, and patient welcome: a student's worth is greater than performance. Atlanta trap, rap, and hip-hop contribute confidence, rhythm, grit, and local identity; dance and joyful movement celebrate creativity and God's creation. Technology can amplify human creativity without replacing it, making room for original work and individual voices. Personal grief stories, correspondence, photos, and poetry remain private unless their owners approve their sharing.
 
@@ -84,6 +84,8 @@ Midnight navy, pearl, lavender, aqua, Crosbie pink and yellow, and champagne gol
 - **KRV (1961):** `#4b7395`, `#bed8ea`
 - **Lutherbibel (1912):** `#8a6c22`, `#fff1bd`, `#b9534b`
 - **Giovanni Diodati:** `#a94f66`, `#f3cada`
+
+Learning and Scripture cards reveal a soft ribbon-inspired glow and gold-edged accent on hover; Scripture links offer the same treatment on keyboard focus. Reduced-motion settings remove the card lift.
 
 ## Automated checks
 

@@ -181,6 +181,15 @@ class SiteRegressionTests(unittest.TestCase):
         self.assertIn("Classes have not yet begun, and enrollment is not yet open.", text)
         self.assertIn("Scholarships are a future goal and are not yet available.", text)
 
+    def test_contact_has_one_email_link_with_address_as_label(self):
+        links = [
+            link for link in self.parser.links
+            if link["attrs"].get("href") == "mailto:isaiahyoon22@gmail.com"
+        ]
+        self.assertEqual(len(links), 1)
+        self.assertEqual(normalize(links[0]["parts"]), "isaiahyoon22@gmail.com")
+        self.assertIn("button", links[0]["attrs"].get("class", "").split())
+
     def test_korean_switch_and_disclosures(self):
         switch = [
             link for link in self.parser.links
@@ -200,6 +209,20 @@ class SiteRegressionTests(unittest.TestCase):
         korean = (ROOT / "assets" / "ko.js").read_text(encoding="utf-8")
         labelled_paths = set(re.findall(r"'(/kjv/b/[^']+)':", korean))
         self.assertEqual(labelled_paths, set(SCRIPTURE_LINKS.values()))
+        self.assertIn("link.href.replace('/kjv/', '/krv/')", korean)
+        self.assertIn("놀라운 말씀에서 ${passage.label} 읽기", korean)
+        self.assertIn('>놀라운 말씀</a>의 제작자', korean)
+        self.assertIn("개역한글판 1961 · 대한성서공회", korean)
+        self.assertIn(
+            "그런즉 누구든지 그리스도 안에 있으면 새로운 피조물이라 이전 것은 지나갔으니 보라 새것이 되었도다 "
+            "모든 것이 하나님께로 났나니 저가 그리스도로 말미암아 우리를 자기와 화목하게 하시고 또 우리에게 화목하게 하는 직책을 주셨으니",
+            korean,
+        )
+        self.assertIn(
+            "무슨 일을 하든지 마음을 다하여 주께 하듯하고 사람에게 하듯하지 말라 "
+            "이는 유업의 상을 주께 받을줄 앎이니 너희는 주 그리스도를 섬기느니라",
+            korean,
+        )
 
 
 if __name__ == "__main__":

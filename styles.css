@@ -1404,6 +1404,40 @@ h2 {
     width: min(100% - 30px, 560px);
   }
 
+  .header-inner {
+    grid-template-columns: minmax(max-content, 1fr) auto auto;
+    column-gap: 6px;
+  }
+
+  .brand {
+    gap: 6px;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-type strong {
+    font-size: 20px;
+  }
+
+  .brand-type > span {
+    font-size: 7px;
+    letter-spacing: .1em;
+    white-space: nowrap;
+  }
+
+  .header-connect {
+    gap: 5px;
+    padding-inline: 8px;
+  }
+
+  .language-switch {
+    min-width: 44px;
+    justify-content: center;
+  }
+
   .button {
     gap: 13px;
     padding-inline: 15px;
@@ -1416,6 +1450,33 @@ h2 {
 
   .section-label .eyebrow {
     font-size: 9px;
+  }
+}
+
+@media (max-width: 310px) {
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-type strong {
+    font-size: 18px;
+  }
+
+  .brand-type > span {
+    font-size: 6px;
+  }
+
+  .header-connect {
+    padding-inline: 5px;
+  }
+
+  .primary-nav {
+    font-size: 11px;
+  }
+
+  .primary-nav a {
+    padding-inline: 1px;
   }
 }
 

@@ -181,6 +181,26 @@ class SiteRegressionTests(unittest.TestCase):
         self.assertIn("Classes have not yet begun, and enrollment is not yet open.", text)
         self.assertIn("Scholarships are a future goal and are not yet available.", text)
 
+    def test_korean_switch_and_disclosures(self):
+        switch = [
+            link for link in self.parser.links
+            if "language-switch" in link["attrs"].get("class", "").split()
+        ]
+        self.assertEqual(len(switch), 1)
+        self.assertEqual(switch[0]["attrs"].get("href"), "?lang=ko")
+        self.assertEqual(switch[0]["attrs"].get("hreflang"), "ko")
+        self.assertIn("assets/ko.js", self.parser.resources)
+
+        korean = (ROOT / "assets" / "ko.js").read_text(encoding="utf-8")
+        self.assertIn("수업은 아직 시작되지 않았으며 등록도 열리지 않았습니다.", korean)
+        self.assertIn("장학금은 앞으로의 목표이며 아직 제공되지 않습니다.", korean)
+        self.assertIn("한국어 수업이나 한국어 지원의 제공을 의미하지 않습니다.", korean)
+
+    def test_korean_scripture_labels_cover_current_passages(self):
+        korean = (ROOT / "assets" / "ko.js").read_text(encoding="utf-8")
+        labelled_paths = set(re.findall(r"'(/kjv/b/[^']+)':", korean))
+        self.assertEqual(labelled_paths, set(SCRIPTURE_LINKS.values()))
+
 
 if __name__ == "__main__":
     unittest.main()
